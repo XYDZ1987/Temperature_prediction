@@ -39,7 +39,7 @@ origin_train_dataset = TensorDataset(x_train_tensor, y_train_tensor)
 train_dataset, val_dataset = random_split(origin_train_dataset, [int(x_train_tensor.shape[0] * 0.8), int(x_train_tensor.shape[0] * 0.2)])
 
 # Builds a loader for each dataset to perform mini-batch gradient descent
-train_loader = DataLoader(dataset=train_dataset, batch_size=128)
+train_loader = DataLoader(dataset=train_dataset, batch_size=256)
 val_loader = DataLoader(dataset=val_dataset, batch_size=1000)
 
 test_dataset = TensorDataset(x_test_tensor, y_test_tensor)
@@ -75,26 +75,12 @@ n_epochs = 3000
 lr = 0.01
 momentum = 0.05
 
-def make_train_step(model, loss_fn, optimizer):
-    def train_step(x, y):
-        model.train()
-        yh = model(x)
-        loss = loss_fn(yh, y)
-        loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), 0.25)
-        optimizer.step()
-        optimizer.zero_grad()
-        return loss.item()
-    return train_step
-
 model = Net().to(device)
 
 loss_fn = nn.MSELoss()
 
 # optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum)
-optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=0.01)
-
-train_step = make_train_step(model, loss_fn, optimizer)
+optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=0.001)
 
 training_losses = []
 validation_losses = []
@@ -104,7 +90,14 @@ for epoch in range(n_epochs):
     for x_batch, y_batch in train_loader:
         x_batch = x_batch.to(device)
         y_batch = y_batch.to(device)
-        loss = train_step(x_batch, y_batch)
+        model.train()
+        yh = model(x_batch)
+        loss = loss_fn(yh, y_batch)
+        loss.backward()
+        loss = loss.item()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 0.25)
+        optimizer.step()
+        optimizer.zero_grad()
         batch_losses.append(loss)
     training_loss = np.mean(batch_losses)
     training_losses.append(training_loss)
@@ -117,9 +110,20 @@ for epoch in range(n_epochs):
             model.eval()
             yh = model(x_val)
             val_loss = loss_fn(yh, y_val)
+            #val_loss = val_loss.item()
             val_losses.append(val_loss)
         validation_loss = np.mean(val_losses)
         validation_losses.append(validation_loss)
         print(
-            f"[{epoch + 1:2}] Training loss: {training_loss:.3f} \t "
-            f"Validation loss: {validation_loss:.3f} ")
+           f"[{epoch + 1:2}] Training loss: {training_loss:.3f} \t "
+           f"Validation loss: {validation_loss:.3f} ")
+
+y_pred = model(x_test_tensor)
+test_loss = loss_fn(y_pred, y_test_tensor)
+print(test_loss)
+
+a = torch.range(500,699)
+plt.plot(a, y_pred[500:700].detach().numpy(), 'r-', label='predict')
+plt.plot(a, y_test_tensor[500:700].detach().numpy(), color='blue',marker='o',label='true')
+plt.legend(loc = 'upper right')
+plt.show()
