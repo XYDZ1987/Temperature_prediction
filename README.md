@@ -1,20 +1,24 @@
 1.如果不加`loss=loss.item（）`的话，就会报错
 
-![image-20201224165418511](C:\Users\h\AppData\Roaming\Typora\typora-user-images\image-20201224165418511.png)
+![图片1](E:\Tem_pred\img\图片1.jpg)
 
-![image-20201224165457886](C:\Users\h\AppData\Roaming\Typora\typora-user-images\image-20201224165457886.png)
+![图片2](E:\Tem_pred\img\图片2.jpg)
 
-![image-20201224165535322](C:\Users\h\AppData\Roaming\Typora\typora-user-images\image-20201224165535322.png)
+![图片3](E:\Tem_pred\img\图片3.jpg)
+
+
+
+
 
 ​	但是在`validation_dataset`中加不加`loss = loss.item()`都可以运行，不知道是因为啥。
 
-2.
+2.![图片4](E:\Tem_pred\img\图片4.jpg)
 
-![image-20201224170917626](C:\Users\h\AppData\Roaming\Typora\typora-user-images\image-20201224170917626.png)
+![图片5](E:\Tem_pred\img\图片5.jpg)
 
-![image-20201224170938838](C:\Users\h\AppData\Roaming\Typora\typora-user-images\image-20201224170938838.png)
 
-![image-20201224171709752](C:\Users\h\AppData\Roaming\Typora\typora-user-images\image-20201224171709752.png)
+
+![图片6](E:\Tem_pred\img\图片6.jpg)
 
 
 
