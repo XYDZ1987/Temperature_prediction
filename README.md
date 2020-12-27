@@ -1,6 +1,6 @@
 1.如果不加`loss=loss.item（）`的话，就会报错
 
-![image text](./img/pic1.jpg)
+![image text](./img/pic1.jpg?raw=true)
 
 ![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic2.jpg)
 
