@@ -2,9 +2,9 @@
 
 ![image](./img/pic1.png)
 
-![image text](./img/pic2.jpg)
+![image text](./img/pic2.png)
 
-![image text](./img/pic3.jpg)
+![image text](./img/pic3.png)
 
 
 
@@ -12,13 +12,13 @@
 
 ​	但是在`validation_dataset`中加不加`loss = loss.item()`都可以运行，不知道是因为啥。
 
-2.![image text](./img/pic4.jpg)
+2.![image text](./img/pic4.png)
 
-![image text](./img/pic5.jpg)
+![image text](./img/pic5.png)
 
 
 
-![image text](./img/pic6.jpg)
+![image text](./img/pic6.png)
 
 
 
