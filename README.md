@@ -1,6 +1,6 @@
 1.如果不加`loss=loss.item（）`的话，就会报错
 
-![image](./img/pic1.jpg)
+![image](./img/pic1.png)
 
 ![image text](./img/pic2.jpg)
 
