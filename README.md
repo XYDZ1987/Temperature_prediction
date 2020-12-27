@@ -1,10 +1,10 @@
 1.如果不加`loss=loss.item（）`的话，就会报错
 
-![image text](https://github.com/XYDZ1987/Temperature_prediction/blob/master/img/pic1.jpg)
+![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic1.jpg)
 
-![image text](https://github.com/XYDZ1987/Temperature_prediction/blob/master/img/pic2.jpg)
+![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic2.jpg)
 
-![image text](https://github.com/XYDZ1987/Temperature_prediction/blob/master/img/pic3.jpg)
+![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic3.jpg)
 
 
 
@@ -12,13 +12,13 @@
 
 ​	但是在`validation_dataset`中加不加`loss = loss.item()`都可以运行，不知道是因为啥。
 
-2.![image text](https://github.com/XYDZ1987/Temperature_prediction/blob/master/img/pic4.jpg)
+2.![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic4.jpg)
 
-![image text](https://github.com/XYDZ1987/Temperature_prediction/blob/master/img/pic5.jpg)
+![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic5.jpg)
 
 
 
-![image text](https://github.com/XYDZ1987/Temperature_prediction/blob/master/img/pic6.jpg)
+![image text](https://github.com/XYDZ1987/Temperature_prediction/raw/master/img/pic6.jpg)
 
 
 
