@@ -1,10 +1,10 @@
 1.如果不加`loss=loss.item（）`的话，就会报错
 
-![pic1](./img//图片1.jpg)
+![pic1](./img/图片1.jpg)
 
-![pic2](.\img\图片2.jpg)
+![pic2](./img/图片2.jpg)
 
-![pic3](.\img\图片3.jpg)
+![pic3](./img/图片3.jpg)
 
 
 
@@ -12,13 +12,13 @@
 
 ​	但是在`validation_dataset`中加不加`loss = loss.item()`都可以运行，不知道是因为啥。
 
-2.![pic4](.\img\图片4.jpg)
+2.![pic4](./img/图片4.jpg)
 
-![pic5](.\img\图片5.jpg)
+![pic5](./img/图片5.jpg)
 
 
 
-![pic6](.\img\图片6.jpg)
+![pic6](./img/图片6.jpg)
 
 
 
