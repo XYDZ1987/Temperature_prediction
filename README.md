@@ -1,26 +1,11 @@
-1.如果不加`loss=loss.item（）`的话，就会报错
+1.各层的参数不是随机初始化的嘛，我用`torch.save(model.state_dict(), 'params1.pth')`保存了一次效果比较好的参数，然后用`model.load_state_dict(torch.load('params1.pth'))`加载参数，加载后别的代码我没有修改，模型会在原来的基础上继续梯度下降。但是每次最初的loss和最终的loss还是不一样（把后面梯度下降的部分注释掉也不行，初始loss还是每次不一样），我开始以为是`Dataloader`把数据打乱了，后面发现不是这个的原因，这是因为啥呀。
 
-![image](./img/pic1.png)
+2.最近再看李航的《统计学习方法》，里面有几个基础概念我没搞明白。
 
-![image text](./img/pic2.png)
+<img src="./img/pic7.jpg" style="zoom:50%;" /> 
 
-![image text](./img/pic3.png)
+<img src="./img/pic8.jpg" style="zoom:50%;" />
 
+<img src="./img/pic9.jpg" style="zoom:80%;" />
 
-
-
-
-​	但是在`validation_dataset`中加不加`loss = loss.item()`都可以运行，不知道是因为啥。
-
-2.![image text](./img/pic4.png)
-
-![image text](./img/pic5.png)
-
-
-
-![image text](./img/pic6.png)
-
-
-
-在测试集中，预测值曲线和真实值曲线的趋势完全一样，是因为过拟合了吗？Adam优化器中加了weight_decay，我从书中看的weight_decay就有L2正则化的作用，不知道是不是过拟合了。。。还有个问题就是，同样的代码，每次运行，最终MSE结果都不一样，这正常吗。。。
-
+就是这统计学习方法的三要素，我拍了几张书上的图片，csdn上面直接搜统计学习方法三要素也行。我没理解这个“模型”到底是啥意思
